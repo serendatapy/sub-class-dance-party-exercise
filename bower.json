@@ -1,0 +1,22 @@
+{
+  "name": "codeworks-sub-class-dance-party",
+  "authors": [
+    "Codeworks"
+  ],
+  "description": "A Codeworks exercise to train students",
+  "license": "UNLICENSED",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chai": "^3.5.0",
+    "jquery": "^3.1.1",
+    "mocha": "^3.0.1",
+    "normalize-css": "^4.2.0"
+  }
+}
