@@ -1,7 +1,6 @@
 
-
 function Dancer (top, left) {
-  var dancer = {};
+  const dancer = {};
   // Use jQuery to create an HTML <div> tag.
   dancer.$node = $('<div class="dancer"></div>');
   dancer.setPosition = function (top, left) {
@@ -17,12 +16,6 @@ function Dancer (top, left) {
 }
 
 // insert the TapDancer constructor here below
-
-var dancers = {
-  regular: [],
-  tappers: []
-};
-
 
 $(function () {
 

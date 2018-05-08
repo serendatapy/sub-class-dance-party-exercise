@@ -42,3 +42,11 @@ header {
   position: absolute;
   width: 15px;
 }
+
+.dancer.tap-dancer {
+  background-color: transparent;
+}
+
+.wild {
+  transition: top 0.4s linear, left 0.4s linear;
+}
