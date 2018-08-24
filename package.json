@@ -1,40 +1,46 @@
 {
-  "name": "codeworks-sub-class-dance-party",
-  "version": "1.1.0",
+  "name": "codeworks-sub-class-dance-party-exercise",
+  "version": "1.1.1",
   "description": "A Codeworks exercise to train students",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "codeworksbcn/sub-class-dance-party"
+    "url": "codeworksbcn/sub-class-dance-party-exercise"
   },
   "scripts": {
+    "pre-commit": "gulp lint && npm test",
     "start": "gulp",
-    "test": "echo no tests specified yet"
+    "test": "echo no tests specified yet",
+    "precommit": "gulp lint"
   },
   "author": "Codeworks",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "browser-sync": "^2.16.0",
+    "browser-sync": "^2.24.6",
+    "chai": "^4.1.2",
     "cz-changelog": "^1.0.1",
-    "del": "^2.2.2",
-    "eslint": "^3.5.0",
-    "eslint-plugin-json": "^1.2.0",
-    "ghooks": "^1.3.2",
+    "del": "^3.0.0",
+    "eslint": "^5.4.0",
+    "eslint-plugin-json": "^1.2.1",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-html-lint": "0.0.1",
-    "gulp-load-plugins": "^1.3.0",
-    "gulp-replace": "^0.5.4",
-    "gulp-stylelint": "^3.2.0",
-    "stylelint-config-standard": "^13.0.0"
+    "gulp-eslint": "^5.0.0",
+    "gulp-html-lint": "0.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-stylelint": "^7.0.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-standard": "^18.2.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "gulp lint"
     }
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0"
   }
 }

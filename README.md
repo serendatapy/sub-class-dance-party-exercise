@@ -14,9 +14,9 @@ Mmm… your dancers are lazy. Make them smoothly move around the stage in a rand
 
 ## Getting started
 
-To install the required dependencies run `npm install` and `bower install`.
+To install the required dependencies run `npm install`.
 
-Now you can run the `npm run start` command from the project folder: this will open the browser on `index.html`, and automagically reload the page any time you modify a js, html, or css file (if you want to disable automatic syncing, you can do it from the control panel at `http://localhost:3001/sync-options`).
+Now you can execute `npm run start` from the project folder: this will open the browser on `index.html`, and automagically reload the page any time you modify a js, html, or css file (if you want to disable automatic syncing, you can do it from the control panel at `http://localhost:3001/sync-options`).
 
 Your JavaScript code goes in `scripts/stage.js`, you can use `index.html` and `style.css` to add anything useful to complete the exercise.
 

@@ -5,12 +5,11 @@ const fs = require('fs');
 const del = require('del');
 const $ = require('gulp-load-plugins')();
 
-// Utility to ignore Node modules and Bower components
+// Utility to ignore unnecessary files
 // when generating the glob patterns array for gulp.src()
 function addDefSrcIgnore (srcArr) {
   return srcArr.concat([
     '!node_modules{,/**}',
-    '!bower_components{,/**}',
     '!private{,/**}',
     '!dist{,/**}',
     '!.git{,/**}',
@@ -80,7 +79,7 @@ gulp.task('dist', ['remove-solutions'], function () {
   const npmConfig = require('./package.json');
   npmConfig.name = removeMaster(npmConfig.name);
   npmConfig.repository.url = removeMaster(npmConfig.repository.url);
-  npmConfig.config.ghooks['pre-commit'] = 'gulp lint';
+  npmConfig.scripts['precommit'] = 'gulp lint';
   fs.writeFileSync('dist/package.json', JSON.stringify(npmConfig, null, 2));
 
   const esLintConfig = require('./.eslintrc.json');

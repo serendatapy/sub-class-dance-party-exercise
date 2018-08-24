@@ -17,6 +17,6 @@ function Dancer (top, left) {
 
 // insert the TapDancer constructor here below
 
-$(function () {
+$(() => {
 
 });
