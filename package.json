@@ -1,11 +1,11 @@
 {
   "name": "codeworks-sub-class-dance-party-exercise",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A Codeworks exercise to train students",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "codeworksbcn/sub-class-dance-party-exercise"
+    "url": "codeworks/sub-class-dance-party-exercise"
   },
   "scripts": {
     "start": "gulp",
