@@ -15,7 +15,7 @@ EXTRA CREDIT
 ....
 */
 
-function Dancer() {
+function Dancer () {
   //make a condition where if position is passed, then use it otherwise it's random.
   const dancer = {};
   dancer.$node = $('<div class="dancer"></div>');
@@ -42,21 +42,21 @@ function Dancer() {
       {
         duration: 5000,
         specialEasing: {
-          width: "linear",
-          height: "easeOutBounce",
+          width: 'linear',
+          height: 'easeOutBounce',
         },
       }
     );
   };
 
   //add dancer to the stage
-  $("#stage").append(dancer.$node);
+  $('#stage').append(dancer.$node);
 
   return dancer;
 }
 
 // insert the TapDancer constructor here below
-function TapDancer(top, left) {
+function TapDancer (top, left) {
   const tDancer = Dancer(top, left);
 
   setInterval(() => {
@@ -66,31 +66,31 @@ function TapDancer(top, left) {
   return tDancer;
 }
 
-function RainbowDancer(top, left) {
+function RainbowDancer (top, left) {
   const rDancer = Dancer(top, left);
 
   setInterval(() => {
-    $(rDancer.$node).css({ animation: "example 4s infinite" });
+    $(rDancer.$node).css({ animation: 'example 4s infinite' });
   }, 1000)();
 
   return rDancer;
 }
 
 //------LISTENERS------
-$("#regular").click(() => {
+$('#regular').click(() => {
   //create instance of dancer(regular)
   let regular = Dancer();
   //regular.dance();
   setInterval(regular.dance(), 1000); //();
 });
 
-$("#tapper").click(() => {
+$('#tapper').click(() => {
   //create instance of dancer(tapper)
   let tapDancer = TapDancer();
   setInterval(tapDancer.dance(), 1000);
 });
 
-$("#rainbow").click(() => {
+$('#rainbow').click(() => {
   //create instance of dancer(rainbow)
   let rainbowDancer = RainbowDancer();
   setInterval(rainbowDancer.dance(), 1000);
