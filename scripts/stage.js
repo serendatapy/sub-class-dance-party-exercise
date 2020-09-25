@@ -76,24 +76,16 @@ function RainbowDancer (top, left) {
   return rDancer;
 }
 
-//------LISTENERS------
-$('#regular').click(() => {
-  //create instance of dancer(regular)
-  let regular = Dancer();
-  //regular.dance();
-  setInterval(regular.dance(), 1000); //();
-});
+$(() => {
+  /*function appendDancer($stage, dancer) {
+    $stage.append(dancer.$node);
+  }
 
-$('#tapper').click(() => {
-  //create instance of dancer(tapper)
-  let tapDancer = TapDancer();
-  setInterval(tapDancer.dance(), 1000);
-});
+  const $stage = $('#stage');
 
-$('#rainbow').click(() => {
-  //create instance of dancer(rainbow)
-  let rainbowDancer = RainbowDancer();
-  setInterval(rainbowDancer.dance(), 1000);
-});
+  $('#regular').on('click', () => {
+    const dancer = Dancer();
+    appendDancer($stage,dancer)
+  });*/
 
-//$(() => {});
+});
