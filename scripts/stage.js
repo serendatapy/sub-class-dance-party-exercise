@@ -15,47 +15,48 @@ EXTRA CREDIT
 ....
 */
 
-
-
-
-function Dancer () {   //make a condition where if position is passed, then use it otherwise it's random.
+function Dancer() {
+  //make a condition where if position is passed, then use it otherwise it's random.
   const dancer = {};
   dancer.$node = $('<div class="dancer"></div>');
 
-  dancer.setRandPosition = function () {
+  dancer.setRandPosition = (function () {
     let rTop = Math.round(Math.random() * 100);
     let rLeft = Math.round(Math.random() * 100);
-    dancer.$node.css({ 'top': `${rTop}%`, 'left': `${rLeft}%` });
+    dancer.$node.css({ top: `${rTop}%`, left: `${rLeft}%` });
     //dancer.setPosition(rTop, rLeft);
-  }();
+  })();
 
   dancer.setPosition = function (top, left) {
-    dancer.$node.css({ 'top': `${top}%`, 'left': `${left}%` });
+    dancer.$node.css({ top: `${top}%`, left: `${left}%` });
   };
 
   dancer.dance = function () {
     let rTop = Math.round(Math.random() * 100);
     let rLeft = Math.round(Math.random() * 100);
-    dancer.$node.animate({
-      top: `${rTop}%`,
-      left: `${rLeft}%`
-    }, {
-      duration: 5000,
-      specialEasing: {
-        width: "linear",
-        height: "easeOutBounce"
+    dancer.$node.animate(
+      {
+        top: `${rTop}%`,
+        left: `${rLeft}%`,
+      },
+      {
+        duration: 5000,
+        specialEasing: {
+          width: "linear",
+          height: "easeOutBounce",
+        },
       }
-    });
+    );
   };
 
   //add dancer to the stage
-  $('#stage').append(dancer.$node);
+  $("#stage").append(dancer.$node);
 
   return dancer;
 }
 
 // insert the TapDancer constructor here below
-function TapDancer (top, left) {
+function TapDancer(top, left) {
   const tDancer = Dancer(top, left);
 
   setInterval(() => {
@@ -65,36 +66,34 @@ function TapDancer (top, left) {
   return tDancer;
 }
 
-function RainbowDancer (top, left) {
+function RainbowDancer(top, left) {
   const rDancer = Dancer(top, left);
 
   setInterval(() => {
-    $(rDancer.$node).css({ 'animation': 'example 4s infinite' });
+    $(rDancer.$node).css({ animation: "example 4s infinite" });
   }, 1000)();
 
   return rDancer;
 }
 
 //------LISTENERS------
-$('#regular').click(() => {
+$("#regular").click(() => {
   //create instance of dancer(regular)
   let regular = Dancer();
   //regular.dance();
-  setInterval(regular.dance(), 1000);//();
+  setInterval(regular.dance(), 1000); //();
 });
 
-$('#tapper').click(() => {
+$("#tapper").click(() => {
   //create instance of dancer(tapper)
   let tapDancer = TapDancer();
   setInterval(tapDancer.dance(), 1000);
 });
 
-$('#rainbow').click(() => {
+$("#rainbow").click(() => {
   //create instance of dancer(rainbow)
   let rainbowDancer = RainbowDancer();
   setInterval(rainbowDancer.dance(), 1000);
 });
-
-
 
 //$(() => {});
