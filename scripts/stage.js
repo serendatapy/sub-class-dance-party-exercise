@@ -1,91 +1,90 @@
-/*
-Function Constructors
-1.move functions to constructors
-2.move functions again to bagMethods (shared functions)
+class Dancer {
+  constructor (top, left) {
+    this.top = top;
+    this.left = left;
+    this.$node = $('<div class="dancer"></div>');
+    this.setRandPosition();
+    $('#stage').append(this.$node);
+  }
 
-Pseudo Constructors
-1.refactor to use the new keyword
-
-ES6
-1.refactor to use ES6 Classes and subClasses
-
-*Make dancers move
-
-EXTRA CREDIT
-....
-*/
-
-function Dancer () {
-  //make a condition where if position is passed, then use it otherwise it's random.
-  const dancer = {};
-  dancer.$node = $('<div class="dancer"></div>');
-
-  dancer.setRandPosition = (function () {
+  setRandPosition () {
     let rTop = Math.round(Math.random() * 100);
     let rLeft = Math.round(Math.random() * 100);
-    dancer.$node.css({ top: `${rTop}%`, left: `${rLeft}%` });
-    //dancer.setPosition(rTop, rLeft);
-  })();
+    this.$node.css({ top: `${rTop}%`, left: `${rLeft}%` });
+  }
 
-  dancer.setPosition = function (top, left) {
-    dancer.$node.css({ top: `${top}%`, left: `${left}%` });
-  };
+  setPosition (top, left) {
+    this.$node.css({ top: `${top}%`, left: `${left}%` });
+  }
 
-  dancer.dance = function () {
-    let rTop = Math.round(Math.random() * 100);
-    let rLeft = Math.round(Math.random() * 100);
-    dancer.$node.animate(
+  dance () {
+    function randomIntFromInterval (min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    let rTop = randomIntFromInterval(-20, 20);
+    let rLeft = randomIntFromInterval(-20, 20);
+
+    let regex = /px/;
+    let currentTop = parseInt(this.$node.css('top').replace(regex, ''));
+    let currentLeft = parseInt(this.$node.css('left').replace(regex, ''));
+
+    this.$node.animate(
       {
-        top: `${rTop}%`,
-        left: `${rLeft}%`,
+        top: `${currentTop - rTop}px`,
+        left: `${currentLeft - rLeft}px`,
       },
       {
-        duration: 5000,
+        duration: 1100,
         specialEasing: {
           width: 'linear',
           height: 'easeOutBounce',
         },
       }
     );
-  };
-
-  //add dancer to the stage
-  $('#stage').append(dancer.$node);
-
-  return dancer;
+  }
 }
 
-// insert the TapDancer constructor here below
-function TapDancer (top, left) {
-  const tDancer = Dancer(top, left);
+//DANCER BAG OF METHODS
 
-  setInterval(() => {
-    $(tDancer.$node).fadeTo(100, 0.1).fadeTo(200, 1.0);
-  }, 1000)();
-
-  return tDancer;
+class TapDancer extends Dancer {
+  constructor (top, left) {
+    super(top, left);
+    setInterval(() => {
+      $(this.$node).fadeTo(100, 0.1).fadeTo(200, 1.0);
+    }, 1000);
+  }
 }
 
-function RainbowDancer (top, left) {
-  const rDancer = Dancer(top, left);
-
-  setInterval(() => {
-    $(rDancer.$node).css({ animation: 'example 4s infinite' });
-  }, 1000)();
-
-  return rDancer;
+class RainbowDancer extends Dancer {
+  constructor (top, left) {
+    super(top, left);
+    setInterval(() => {
+      $(this.$node).css({ animation: 'example 4s infinite' });
+    }, 1000);
+  }
 }
 
 $(() => {
-  /*function appendDancer($stage, dancer) {
-    $stage.append(dancer.$node);
-  }
+  //------LISTENERS------
+  $('#regular').click(() => {
+    let regular = new Dancer();
+    setInterval(() => {
+      //console.log('DANCE!')
+      regular.dance();
+    }, 1000);
+  });
 
-  const $stage = $('#stage');
+  $('#tapper').click(() => {
+    let tapDancer = new TapDancer();
+    setInterval(() => {
+      tapDancer.dance();
+    }, 1000);
+  });
 
-  $('#regular').on('click', () => {
-    const dancer = Dancer();
-    appendDancer($stage,dancer)
-  });*/
-
+  $('#rainbow').click(() => {
+    let rainbowDancer = new RainbowDancer();
+    setInterval(() => {
+      rainbowDancer.dance();
+    }, 1000);
+  });
 });
