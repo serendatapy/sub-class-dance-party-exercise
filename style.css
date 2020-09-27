@@ -44,7 +44,7 @@ header {
   width: 15px;
 }
 
-@keyframes example {
+@keyframes colour-change {
   0% {
     background-color: red;
   }
