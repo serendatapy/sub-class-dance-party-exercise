@@ -29,6 +29,7 @@ class Dancer {
     let currentLeft = parseInt(this.$node.css('left').replace(regex, ''));
     return [currentTop, currentLeft];
   }
+
   getRandomPosition (min = 0, max = 100) {
     let rTop = this.randomIntRange(min, max);
     let rLeft = this.randomIntRange(min, max);
